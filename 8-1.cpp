@@ -85,5 +85,6 @@ int main() {
 int dayOfWeek(int month, int day, int year) {
     int h;
     h = (day + (((month + 1)*26)/10) + year + (year/4) + (6*(year/100))+(year/400));
+    h = h % 10;
     return h;
 }
