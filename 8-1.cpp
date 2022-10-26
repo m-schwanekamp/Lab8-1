@@ -15,6 +15,7 @@ dayOfWeek - Computes the weekday of a given date.
 
 int main() {
     int h;
+    int week_day;
     int q;
     int day;
     int m;
@@ -25,9 +26,7 @@ int main() {
     cout << "Enter a date or Q to quit: ";
     if (cin >> m >> q >> Y) {
         cout << "The date is ";
-        dayOfWeek(m, q, Y);
-        h = dayOfWeek(month, day, year);
-        cout << h << endl;
+        h = dayOfWeek(m, q, Y);
         if (h == 0) cout << "Saturday, ";
         if (h == 1) cout << "Sunday, ";
         if (h == 2) cout << "Monday, ";
@@ -83,6 +82,6 @@ int main() {
 
 int dayOfWeek(int month, int day, int year) {
     int h;
-    h = (day+ (((month + 1) *26)/ 10) + year + (year / 4) + (6* (year / 100)) + (year / 400)) % 7;
+    h = ((day+ (((month + 1) *26)/ 10) + year + (year / 4) + (6* (year / 100)) + (year / 400))) % 7;
     return h;
 }
