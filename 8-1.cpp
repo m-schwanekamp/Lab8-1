@@ -25,6 +25,10 @@ int main() {
 
     cout << "Enter a date or Q to quit: ";
     if (cin >> m >> q >> Y) {
+        if (m == 1 || m == 2) {
+            m += 12;
+            Y--;
+        }
         cout << "The date is ";
         h = dayOfWeek(m, q, Y);
         if (h == 0) cout << "Saturday, ";
@@ -34,7 +38,7 @@ int main() {
         if (h == 4) cout << "Wednesday, ";
         if (h == 5) cout << "Thursday, ";
         if (h == 6) cout << "Friday, ";
-       // cout << "The date is " << dayOfWeek(month, day, year);
+        // cout << "The date is " << dayOfWeek(month, day, year);
         if (m == 1 || m == 13) {
             cout << "January ";
         }
@@ -71,8 +75,8 @@ int main() {
         if (m == 12) {
             cout << "December ";
         }
-        
-        if (1 <= q && q <=31) {
+
+        if (1 <= q && q <= 31) {
             cout << q << ", ";
         }
         cout << Y << endl;
@@ -82,6 +86,6 @@ int main() {
 
 int dayOfWeek(int month, int day, int year) {
     int h;
-    h = ((day+ (((month + 1) *26)/ 10) + year + (year / 4) + (6* (year / 100)) + (year / 400))) % 7;
+    h = ((day + (((month + 1) * 26) / 10) + year + (year / 4) + (6 * (year / 100)) + (year / 400))) % 7;
     return h;
 }
